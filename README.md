@@ -134,7 +134,7 @@ From the Azure Portal, restart Client-1
 
 
 <p>
-<img src="https://imgur.com/Ljw4HCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/24qYJAX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Login to Client-1 (Remote Desktop) as the original local admin (labuser) and join it to the domain (computer will restart)
@@ -144,21 +144,87 @@ Login to Client-1 (Remote Desktop) as the original local admin (labuser) and joi
 
 
 <p>
-<img src="https://imgur.com/5XKmCak.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/v6Nws39.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ensure Connectivity between the client and Domain Controller
-Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping  <ip address> 
+Log into Client-1 as mydomain.com\jane_admin and open system properties
+Click “Remote Desktop”
+
 </p>
 <br />
 
 
 
 <p>
-<img src="https://imgur.com/Ljw4HCE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/s5CJtQA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Ensure Connectivity between the client and Domain Controller
-Login to Client-1 with Remote Desktop and ping DC-1’s private IP address with ping  <ip address> 
+Allow “domain users” access to remote desktop
+You can now log into Client-1 as a normal, non-administrative user now
+Normally you’d want to do this with Group Policy that allows you to change MANY systems at once 
+
 </p>
 <br />
+
+
+<p>
+<img src="https://imgur.com/vVrhhgd.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Create a bunch of additional users and attempt to log into client-1 with one of the users
+Login to DC-1 as jane_admin
+Open PowerShell_ise as an administrator
+Create a new File and paste the contents of the script into it (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1)
+
+</p>
+<br />
+
+
+
+<p>
+<img src="https://imgur.com/BjNVEcG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+Run the script (hit the play button) and observe the accounts being created
+
+
+
+</p>
+<br />
+
+
+
+<p>
+<img src="https://imgur.com/sFzAiip.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p> Image of what the script is doing while creating accounts
+
+
+
+</p>
+<br />
+
+
+<p>
+<img src="https://imgur.com/J1oHPgE.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p> Head to Active Directory Uses and Comptuers, select an account you want to login to and save the username. 
+
+
+
+</p>
+<br />
+
+
+<p>
+<img src="https://imgur.com/IiEmpE5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p> attempt to log into Client-1 with one of the accounts (take note of the password in the script)
+
+
+</p>
+<br />
+
+
+
+
